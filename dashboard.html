@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Riwayat Couture | Premium Fashion</title>
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+ <style>
+  :root {
+   /* Matching the paper texture of your logo */
+   --cream: #F4F2F0;
+   --zinc: #2C3539;
+   /* Neon Glow Color - adjusted to match the deep Zinc of your brand */
+   --neon-glow: rgba(44, 53, 57, 0.4);
+   --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+   background-color: var(--cream);
+   color: var(--zinc);
+   font-family: 'Inter', sans-serif;
+   margin: 0;
+   overflow-x: hidden;
+  }
+
+  /* --- LOGO ANIMATIONS --- */
+
+  /* Slide-in movement */
+  @keyframes logoSlideIn {
+   0% { transform: translateX(-80px); opacity: 0; }
+   100% { transform: translateX(0); opacity: 1; }
+  }
+
+  /* Breathing Neon Glow Pulse */
+  @keyframes neonPulse {
+   0% { filter: drop-shadow(0 0 5px var(--neon-glow)) contrast(1.05); }
+   50% { filter: drop-shadow(0 0 20px var(--neon-glow)) contrast(1.1); }
+   100% { filter: drop-shadow(0 0 5px var(--neon-glow)) contrast(1.05); }
+  }
+
+  header {
+   padding: 60px 5%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+  }
+
+  .logo-container img {
+   width: 250px; /* Large size for impact */
+   margin-bottom: 20px;
+   mix-blend-mode: multiply; /* Blends image background with page */
+
+   /* Combining the slide-in and the neon pulse */
+   animation:
+           logoSlideIn 1.2s ease-out forwards,
+           neonPulse 3s infinite ease-in-out 1.2s; /* Pulse starts after slide finishes */
+  }
+
+  h1, h2 {
+   font-family: 'Playfair Display', serif;
+   text-transform: uppercase;
+   text-shadow: 0 0 10px var(--neon-glow);
+   letter-spacing: 3px;
+  }
+
+  /* --- NAVIGATION --- */
+  nav {
+   margin-top: 35px;
+   border-top: 1px solid rgba(44, 53, 57, 0.1);
+   border-bottom: 1px solid rgba(44, 53, 57, 0.1);
+   padding: 20px 0;
+   width: 100%;
+  }
+
+  nav a {
+   display: inline-block;
+   text-decoration: none;
+   color: var(--zinc);
+   margin: 0 25px;
+   font-size: 0.85rem;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   transition: var(--transition);
+  }
+
+  nav a:hover {
+   transform: scaleX(1.5);
+   font-weight: bold;
+   /* Added a subtle glow to links on hover too */
+   text-shadow: 0 0 8px var(--neon-glow);
+  }
+
+  /* --- HERO & CONTENT --- */
+  .hero {
+   padding: 100px 10%;
+   text-align: center;
+  }
+
+  .featured-products {
+   max-width: 700px;
+   margin: 0 auto 100px auto;
+   padding: 0 20px;
+  }
+
+  article {
+   padding: 40px;
+   margin-bottom: 30px;
+   border-left: 3px solid var(--zinc);
+   background: rgba(44, 53, 57, 0.03);
+   transition: var(--transition);
+   cursor: pointer;
+  }
+
+  article:hover {
+   background: rgba(44, 53, 57, 0.08);
+   padding-left: 55px;
+   box-shadow: -5px 5px 15px rgba(0,0,0,0.02);
+  }
+
+  footer {
+   background: var(--zinc);
+   color: var(--cream);
+   padding: 60px 20px;
+   text-align: center;
+  }
+
+ </style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo-container">
+  <img src="Logo.jpeg" alt="Riwayaat Couture Logo">
+  <h1>Riwayat Couture</h1>
+ </div>
+
+ <nav>
+  <a href="Dashboard.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="categories.html">Categories</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact</a>
+ </nav>
+</header>
+
+<main>
+ <section class="hero">
+  <h2>Welcome to Riwayaat Couture</h2>
+  <p>Discover beautiful traditional and modern outfits for every occasion.</p>
+ </section>
+
+ <section class="featured-products">
+  <h2>Featured Collection</h2>
+  <article>
+   <h3>Embroided Suit</h3>
+   <p>Elegant embroided suit for special events.</p>
+  </article>
+  <article>
+   <h3>Festive Wear</h3>
+   <p>Perfect dresses for weddings and celebrations.</p>
+  </article>
+  <article>
+   <h3>Casual Wear</h3>
+   <p>Comfortable and stylish outfits for daily use.</p>
+  </article>
+ </section>
+</main>
+
+<footer>
+ <div class="footer-info">
+  <p>© 2026 RIWAYAAT COUTURE</p>
+  <p>riwayaatcouture@gmail.com</p>
+ </div>
+</footer>
+
+</body>
+</html>
