@@ -10,7 +10,8 @@
         :root {
             --cream: #FDFBF7;
             --zinc: #2C3539;
-            --zinc-glow: rgba(44, 53, 57, 0.6);
+            --gold: #C5A059; /* Matching the Shop page accent */
+            --zinc-glow: rgba(44, 53, 57, 0.1);
             --transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -23,75 +24,42 @@
             overflow-x: hidden;
         }
 
-        /* --- STAGGERED REVEAL ANIMATION --- */
+        /* --- CONTENT CONTAINER --- */
+        .content-container {
+            /* Intro animation removed - now loads immediately */
+            opacity: 0;
+            animation: revealUp 1.2s ease forwards;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
         @keyframes revealUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- THE UNIQUE SPLASH INTRO --- */
-        .intro-screen {
-            position: fixed;
-            inset: 0;
-            background: var(--cream);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            animation: introFade 1s ease forwards 2.5s;
-        }
-
-        .intro-logo {
-            width: 320px;
-            mix-blend-mode: multiply;
-            animation: logoScale 2.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
-        }
-
-        @keyframes logoScale {
-            0% { transform: scale(0.6); opacity: 0; filter: blur(10px); }
-            50% { transform: scale(1.05); opacity: 1; filter: blur(0); filter: drop-shadow(0 0 20px var(--zinc-glow)); }
-            100% { transform: scale(0.9); opacity: 0; }
-        }
-
-        @keyframes introFade {
-            to { opacity: 0; visibility: hidden; }
-        }
-
-        /* --- PAGE CONTENT --- */
-        .content-container {
-            opacity: 0;
-            animation: fadeInContent 1.2s ease forwards 2.8s;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        @keyframes fadeInContent {
-            to { opacity: 1; }
-        }
-
         header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .header-logo {
-            width: 220px;
-            mix-blend-mode: multiply;
-            filter: drop-shadow(0 0 10px var(--zinc-glow));
+            width: 180px;
+            /* Removed mix-blend-mode to keep logo original as requested */
             margin-bottom: 20px;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             letter-spacing: 5px;
             text-transform: uppercase;
         }
 
-        /* --- UNIQUE NAV: FLOATING MINIMALIST --- */
+        /* --- NAVIGATION --- */
         nav {
-            margin: 40px 0;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
             gap: 40px;
@@ -100,16 +68,16 @@
         nav a {
             text-decoration: none;
             color: var(--zinc);
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-weight: 600;
             transition: var(--transition);
         }
 
         nav a:hover {
-            transform: scaleX(1.5);
-            letter-spacing: 5px;
+            color: var(--gold);
+            letter-spacing: 4px;
         }
 
         /* --- CONTACT GRID --- */
@@ -123,8 +91,6 @@
         .info-card {
             padding: 40px;
             border-left: 1px solid var(--zinc);
-            animation: revealUp 1s ease forwards 3.2s;
-            opacity: 0;
         }
 
         .info-card h2 {
@@ -133,14 +99,18 @@
             margin-bottom: 20px;
         }
 
-        /* --- THE UNIQUE FORM (Glassmorphism) --- */
+        /* --- FORM CARD --- */
         .form-card {
             background: #fff;
             padding: 50px;
-            box-shadow: 20px 20px 60px rgba(44, 53, 57, 0.05);
+            box-shadow: 0 20px 60px rgba(44, 53, 57, 0.05);
             border: 1px solid rgba(44, 53, 57, 0.05);
-            animation: revealUp 1s ease forwards 3.5s;
-            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .form-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
         }
 
         .form-group {
@@ -161,11 +131,11 @@
         }
 
         .form-group input:focus, .form-group textarea:focus {
-            border-bottom-color: var(--zinc);
+            border-bottom-color: var(--gold);
             padding-left: 10px;
         }
 
-        /* --- THE BUTTON: INK FILL EFFECT --- */
+        /* --- INK FILL BUTTON --- */
         .btn-submit {
             position: relative;
             background: transparent;
@@ -199,6 +169,8 @@
 
         .btn-submit:hover {
             color: var(--cream);
+            border-color: var(--zinc);
+            box-shadow: 0 10px 20px var(--zinc-glow);
         }
 
         footer {
@@ -217,18 +189,13 @@
 
 <body>
 
-<div class="intro-screen">
-    <img src="Logo.jpeg" class="intro-logo" alt="Riwayat Couture Logo">
-</div>
-
 <div class="content-container">
     <header>
-        <img src="Logo.jpeg" class="header-logo" alt="Riwayat Couture">
-        <h1>Riwayat Couture</h1>
+        <img src="Logo.jpeg" class="header-logo" alt="Riwayaat Couture">
+        <h1>Riwayaat Couture</h1>
         <nav>
             <a href="Dashboard.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="categories.html">Categories</a>
+            <a href="Shop.html">Shop</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -240,8 +207,8 @@
             <p style="margin-bottom: 30px; font-weight: 300;">Step into the world of couture. We are here to assist with your bespoke fashion journey.</p>
 
             <p><strong>PH:</strong> +92 318 3842944</p>
-            <p><strong>WA:</strong> +92 3183842944</p>
-            <p><strong>EM:</strong> riwayatcouture@gmail.com</p>
+            <p><strong>WA:</strong> +92 318 3842944</p>
+            <p><strong>EM:</strong> riwayaatcouture@gmail.com</p>
             <p><strong>LOC:</strong> Mardan, Pakistan</p>
         </div>
 

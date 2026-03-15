@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irsa Khan - Web Technology Portfolio</title>
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <style>
+        body {
+            margin: 0; padding: 0; font-family: 'Poppins', sans-serif;
+            min-height: 100vh; display: flex; justify-content: center; align-items: center;
+            background: linear-gradient(-45deg, #1a1a1a, #2c3e50, #d4af37, #2c3e50);
+            background-size: 400% 400%; animation: gradientBG 15s ease infinite;
+            overflow-x: hidden; padding: 20px;
+        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2); padding: 2.5rem;
+            width: 100%; max-width: 550px; text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { color: #d4af37; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .subtitle { color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem; font-style: italic; }
+        h2 { color: white; font-size: 1.2rem; margin-top: 1.5rem; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 5px; }
+        .link-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .full-width { grid-column: span 2; }
+        .btn {
+            display: block; text-decoration: none; color: white;
+            background: rgba(255, 255, 255, 0.05); padding: 12px;
+            border-radius: 10px; font-weight: 500; font-size: 0.9rem;
+            transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn:hover { background: #d4af37; color: #1a1a1a; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        .project-showcase { margin-top: 15px; border: 2px solid rgba(212, 175, 55, 0.5); border-radius: 12px; padding: 5px; }
+        .github-footer { margin-top: 2rem; display: inline-block; color: #d4af37; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="glass-card">
+    <h1>Irsa Khan</h1>
+    <p class="subtitle">Computer Science Student | UET Peshawar</p>
+
+    <h2>Featured Project</h2>
+    <div class="project-showcase">
+        <a href="shop.html" class="btn full-width">
+            <strong>Riwayaat Couture</strong><br>
+            <small>Live Shopping Website Project</small>
+        </a>
+    </div>
+
+    <h2>Lab 02: HTML Fundamentals</h2>
+    <ul class="link-list">
+        <li><a href="profile.html" class="btn">Personal Profile</a></li>
+        <li><a href="schedule.html" class="btn">Course Schedule</a></li>
+        <li class="full-width"><a href="registration.html" class="btn">Member Registration Form</a></li>
+    </ul>
+
+    <h2>Lab 03: Advanced CSS</h2>
+    <ul class="link-list">
+        <li><a href="lab03-css/exercises/selectors.html" class="btn">Selectors</a></li>
+        <li><a href="lab03-css/exercises/backgrounds.html" class="btn">Backgrounds</a></li>
+        <li><a href="lab03-css/exercises/buttons.html" class="btn">Button Styling</a></li>
+        <li><a href="lab03-css/exercises/navigation.html" class="btn">Nav Menus</a></li>
+        <li><a href="lab03-css/exercises/transform.html" class="btn">3D Transforms</a></li>
+        <li><a href="lab03-css/exercises/advanced.html" class="btn">Animations</a></li>
+    </ul>
+
+    <a href="https://github.com/IrsaKhan1234" class="github-footer" target="_blank">View GitHub Repository</a>
+</div>
+
+</body>
+</html>

@@ -3,177 +3,213 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Riwayat Couture | Premium Fashion</title>
- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+ <title>Dashboard | Riwayaat Couture</title>
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
  <style>
   :root {
-   /* Matching the paper texture of your logo */
-   --cream: #F4F2F0;
+   --cream: #FDFBF7;
    --zinc: #2C3539;
-   /* Neon Glow Color - adjusted to match the deep Zinc of your brand */
-   --neon-glow: rgba(44, 53, 57, 0.4);
-   --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+   --zinc-glow: rgba(44, 53, 57, 0.6);
+   --transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
-  body {
+  body, html {
+   margin: 0;
+   padding: 0;
    background-color: var(--cream);
    color: var(--zinc);
    font-family: 'Inter', sans-serif;
-   margin: 0;
    overflow-x: hidden;
   }
 
-  /* --- LOGO ANIMATIONS --- */
-
-  /* Slide-in movement */
-  @keyframes logoSlideIn {
-   0% { transform: translateX(-80px); opacity: 0; }
-   100% { transform: translateX(0); opacity: 1; }
+  /* --- THE CINEMATIC INTRO SCREEN --- */
+  .intro-screen {
+   position: fixed;
+   inset: 0;
+   background: #D3D3D3; /* Grey background as requested */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+   animation: introFade 1s ease forwards 2.5s;
   }
 
-  /* Breathing Neon Glow Pulse */
-  @keyframes neonPulse {
-   0% { filter: drop-shadow(0 0 5px var(--neon-glow)) contrast(1.05); }
-   50% { filter: drop-shadow(0 0 20px var(--neon-glow)) contrast(1.1); }
-   100% { filter: drop-shadow(0 0 5px var(--neon-glow)) contrast(1.05); }
+  .intro-logo {
+   width: 320px;
+   mix-blend-mode: multiply;
+   animation: logoScale 2.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  }
+
+  @keyframes logoScale {
+   0% { transform: scale(0.6); opacity: 0; filter: blur(10px); }
+   50% { transform: scale(1.05); opacity: 1; filter: blur(0); filter: drop-shadow(0 0 20px var(--zinc-glow)); }
+   100% { transform: scale(0.9); opacity: 0; }
+  }
+
+  @keyframes introFade {
+   to { opacity: 0; visibility: hidden; }
+  }
+
+  /* --- MAIN CONTENT REVEAL --- */
+  .content-container {
+   opacity: 0;
+   animation: fadeInContent 1.2s ease forwards 2.8s;
+   max-width: 1200px;
+   margin: 0 auto;
+  }
+
+  @keyframes fadeInContent {
+   to { opacity: 1; }
   }
 
   header {
-   padding: 60px 5%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
    text-align: center;
+   padding: 80px 20px 40px;
   }
 
-  .logo-container img {
-   width: 250px; /* Large size for impact */
+  .header-logo {
+   width: 200px;
    margin-bottom: 20px;
-   mix-blend-mode: multiply; /* Blends image background with page */
-
-   /* Combining the slide-in and the neon pulse */
-   animation:
-           logoSlideIn 1.2s ease-out forwards,
-           neonPulse 3s infinite ease-in-out 1.2s; /* Pulse starts after slide finishes */
   }
 
-  h1, h2 {
+  h1 {
    font-family: 'Playfair Display', serif;
+   font-size: 2.8rem;
+   letter-spacing: 5px;
    text-transform: uppercase;
-   text-shadow: 0 0 10px var(--neon-glow);
-   letter-spacing: 3px;
   }
 
   /* --- NAVIGATION --- */
   nav {
-   margin-top: 35px;
+   margin: 40px 0;
+   display: flex;
+   justify-content: center;
+   gap: 40px;
    border-top: 1px solid rgba(44, 53, 57, 0.1);
    border-bottom: 1px solid rgba(44, 53, 57, 0.1);
    padding: 20px 0;
-   width: 100%;
   }
 
   nav a {
-   display: inline-block;
    text-decoration: none;
    color: var(--zinc);
-   margin: 0 25px;
-   font-size: 0.85rem;
-   letter-spacing: 2px;
+   font-size: 0.75rem;
    text-transform: uppercase;
+   letter-spacing: 3px;
+   font-weight: 600;
    transition: var(--transition);
   }
 
   nav a:hover {
-   transform: scaleX(1.5);
-   font-weight: bold;
-   /* Added a subtle glow to links on hover too */
-   text-shadow: 0 0 8px var(--neon-glow);
+   transform: scaleX(1.2);
+   letter-spacing: 5px;
+   color: #C5A059; /* Gold accent for elegance */
   }
 
-  /* --- HERO & CONTENT --- */
+  /* --- HERO SECTION --- */
   .hero {
-   padding: 100px 10%;
    text-align: center;
+   padding: 100px 10%;
+   animation: revealUp 1s ease forwards 3.2s;
+   opacity: 0;
   }
 
-  .featured-products {
-   max-width: 700px;
-   margin: 0 auto 100px auto;
-   padding: 0 20px;
+  @keyframes revealUp {
+   from { opacity: 0; transform: translateY(30px); }
+   to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h2 {
+   font-family: 'Playfair Display', serif;
+   font-size: 3rem;
+   margin-bottom: 20px;
+  }
+
+  /* --- FEATURED GRID --- */
+  .featured-collection {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 30px;
+   padding: 0 5% 100px;
+   animation: revealUp 1s ease forwards 3.5s;
+   opacity: 0;
   }
 
   article {
+   background: #fff;
    padding: 40px;
-   margin-bottom: 30px;
-   border-left: 3px solid var(--zinc);
-   background: rgba(44, 53, 57, 0.03);
+   text-align: center;
+   border: 1px solid rgba(44, 53, 57, 0.05);
    transition: var(--transition);
-   cursor: pointer;
   }
 
   article:hover {
-   background: rgba(44, 53, 57, 0.08);
-   padding-left: 55px;
-   box-shadow: -5px 5px 15px rgba(0,0,0,0.02);
+   transform: translateY(-10px);
+   box-shadow: 0 20px 40px rgba(44, 53, 57, 0.05);
+   border-color: #C5A059;
+  }
+
+  article h3 {
+   font-family: 'Playfair Display', serif;
+   font-size: 1.5rem;
+   margin-bottom: 15px;
   }
 
   footer {
+   padding: 80px 20px;
    background: var(--zinc);
    color: var(--cream);
-   padding: 60px 20px;
    text-align: center;
   }
-
  </style>
 </head>
 
 <body>
 
-<header>
- <div class="logo-container">
-  <img src="Logo.jpeg" alt="Riwayaat Couture Logo">
-  <h1>Riwayat Couture</h1>
- </div>
+<div class="intro-screen">
+ <img src="Logo.jpeg" class="intro-logo" alt="Riwayaat Couture Logo">
+</div>
 
- <nav>
-  <a href="Dashboard.html">Home</a>
-  <a href="shop.html">Shop</a>
-  <a href="categories.html">Categories</a>
-  <a href="about.html">About Us</a>
-  <a href="contact.html">Contact</a>
- </nav>
-</header>
+<div class="content-container">
+ <header>
+  <img src="Logo.jpeg" class="header-logo" alt="Riwayaat Couture">
+  <h1>Riwayaat Couture</h1>
+  <nav>
+   <a href="Dashboard.html">Home</a>
+   <a href="shop.html">Shop</a>
+   <a href="categories.html">Categories</a>
+   <a href="about.html">About Us</a>
+   <a href="contact.html">Contact</a>
+  </nav>
+ </header>
 
-<main>
- <section class="hero">
-  <h2>Welcome to Riwayaat Couture</h2>
-  <p>Discover beautiful traditional and modern outfits for every occasion.</p>
- </section>
+ <main>
+  <section class="hero">
+   <h2>Elegance Redefined</h2>
+   <p>Experience the finest craftsmanship in modern and traditional couture.</p>
+  </section>
 
- <section class="featured-products">
-  <h2>Featured Collection</h2>
-  <article>
-   <h3>Embroided Suit</h3>
-   <p>Elegant embroided suit for special events.</p>
-  </article>
-  <article>
-   <h3>Festive Wear</h3>
-   <p>Perfect dresses for weddings and celebrations.</p>
-  </article>
-  <article>
-   <h3>Casual Wear</h3>
-   <p>Comfortable and stylish outfits for daily use.</p>
-  </article>
- </section>
-</main>
+  <section class="featured-collection">
+   <article>
+    <h3>Embroidered Suit</h3>
+    <p>Sophisticated designs for your special moments.</p>
+   </article>
+   <article>
+    <h3>Festive Wear</h3>
+    <p>Celebration-ready luxury attire.</p>
+   </article>
+   <article>
+    <h3>Casual Luxury</h3>
+    <p>Premium everyday wear for the modern woman.</p>
+   </article>
+  </section>
+ </main>
+</div>
 
 <footer>
- <div class="footer-info">
-  <p>© 2026 RIWAYAAT COUTURE</p>
-  <p>riwayaatcouture@gmail.com</p>
- </div>
+ <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
+ <p style="font-size: 0.75rem; margin-top: 10px; opacity: 0.7;">riwayaatcouture@gmail.com</p>
 </footer>
 
 </body>
