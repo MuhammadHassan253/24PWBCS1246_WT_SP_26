@@ -1,65 +1,218 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Casual Suits - Riwayat Couture</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casual Suits | Riwayaat Couture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDFBF7;
+            --zinc: #2C3539;
+            --gold: #C5A059;
+            --transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* --- BASIC RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--cream);
+            color: var(--zinc);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- CONTENT REVEAL --- */
+        .content-container {
+            opacity: 0;
+            animation: revealUp 1.2s ease forwards;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 5%;
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header-logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-top: 1px solid rgba(44, 53, 57, 0.1);
+            border-bottom: 1px solid rgba(44, 53, 57, 0.1);
+            padding: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--zinc);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            letter-spacing: 4px;
+        }
+
+        /* --- COLLECTION SECTION --- */
+        .intro-text {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .intro-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(44, 53, 57, 0.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            margin-bottom: 25px;
+        }
+
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* --- BUTTON --- */
+        .btn-order {
+            background: var(--zinc);
+            color: var(--cream);
+            border: 1px solid var(--zinc);
+            padding: 15px 40px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .btn-order:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: 100px;
+            padding: 60px;
+            background: var(--zinc);
+            color: var(--cream);
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+<div class="content-container">
+    <header>
+        <img src="Logo.jpeg" class="header-logo" alt="Riwayaat Couture">
+        <h1>Riwayaat Couture</h1>
+        <nav>
+            <a href="Dashboard.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <div>
-        <img src="Logo.jpeg" width="120">
-        <h1>Riwayat Couture</h1>
-    </div>
+    <main>
+        <section class="intro-text">
+            <h2>Casual Suits Collection</h2>
+            <p>Explore our beautiful casual suits designed for elegance and tradition.</p>
+        </section>
 
-    <nav>
-        <a href="Dashboard.html">Home</a>
-        <a href="Shop.html">Shop</a>
-        <a href="categories.html">Categories</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+        <section class="collection-grid">
+            <article class="product-card">
+                <img src="casual/dress1.jpg" alt="Elegant Suit">
+                <h3>Elegant Casual Suit</h3>
+                <p class="price">PKR 6,490</p>
+                <p class="description">Perfect for semi-formal gatherings and day events.</p>
+                <button class="btn-order">Order Now</button>
+            </article>
 
-</header>
-
-<main>
-
-    <section>
-
-        <h2>Casual Suits Collection</h2>
-        <p>Explore our beautiful casual suits designed for elegance and tradition.</p>
-
-    </section>
-
-    <section>
-
-        <article>
-            <img src="casual/dress1.jpg" width="200">
-            <h3>Elegant Embroidered Suit</h3>
-            <p>Price: PKR 6490</p>
-            <p>Perfect for weddings and special occasions.</p>
-            <button>Order Now</button>
-        </article>
-
-        <article>
-            <img src="casual/dress2.jpg" width="200">
-            <h3>Luxury Embroidered Dress</h3>
-            <p>Price: PKR 4490</p>
-            <p>Beautiful hand embroidery with modern style.</p>
-            <button>Order Now</button>
-        </article>
-
-    </section>
-
-</main>
+            <article class="product-card">
+                <img src="casual/dress2.jpg" alt="Luxury Dress">
+                <h3>Luxury Everyday Dress</h3>
+                <p class="price">PKR 4,490</p>
+                <p class="description">Comfortable fabrics with modern hand-touched embroidery.</p>
+                <button class="btn-order">Order Now</button>
+            </article>
+        </section>
+    </main>
+</div>
 
 <footer>
-
-    <p>© 2026 Riwayat Couture</p>
-    <p>Contact: riwayatcouture@gmail.com</p>
-
+    <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
+    <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">riwayaatcouture@gmail.com</p>
 </footer>
 
 </body>
