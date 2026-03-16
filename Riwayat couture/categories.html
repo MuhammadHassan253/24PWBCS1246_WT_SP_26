@@ -120,31 +120,31 @@
             <a href="embroidered.html" class="category-card">
                 <h3>Embroidered Suits</h3>
                 <p>Intricate craftsmanship for those who appreciate detailed elegance.</p>
-                <button>Add to Cart</button>
+
             </a>
 
             <a href="festive.html" class="category-card">
                 <h3>Festive Suits</h3>
                 <p>Celebrate in style with our luxurious wedding and event wear.</p>
-                <button>Add to Cart</button>
+
             </a>
 
             <a href="casual.html" class="category-card">
                 <h3>Casual Suits</h3>
                 <p>Premium daily wear that blends comfort with traditional aesthetics.</p>
-                <button>Add to Cart</button>
+
             </a>
 
             <a href="lawn.html" class="category-card">
                 <h3>Lawn Suits</h3>
                 <p>Breathable and stylish fabrics perfect for the warmer seasons.</p>
-                <button>Add to Cart</button>
+
             </a>
 
             <a href="party.html" class="category-card">
                 <h3>Party Wear</h3>
                 <p>Modern cuts and vibrant designs for unforgettable celebrations.</p>
-                <button>Add to Cart</button>
+
             </a>
         </section>
     </main>
@@ -154,6 +154,22 @@
     <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
     <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">riwayaatcouture@gmail.com</p>
 </footer>
+
+<script>
+
+    function addToCart(name, price){
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({name:name, price:price});
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to cart!");
+
+    }
+
+</script>
 
 </body>
 </html>

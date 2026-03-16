@@ -196,8 +196,11 @@
                 <h3>Wedding Wear Embroided</h3>
                 <p class="price">PKR 6,490</p>
                 <p class="description">Perfect for weddings, Eid, and special celebrations.</p>
-                <button class="btn-order">Order Now</button>
-                <button>Add to Cart</button>
+                <a href="checkout.html">
+                    <button class="btn-order">Order Now</button>
+                </a>
+
+                <button onclick="addToCart('Festive Dress',6000)">Add to Cart</button>
             </article>
 
             <article class="product-card">
@@ -205,8 +208,11 @@
                 <h3>Wedding Wear Simple</h3>
                 <p class="price">PKR 4,490</p>
                 <p class="description">Intricate handwork combined with modern festive cuts.</p>
-                <button class="btn-order">Order Now</button>
-                <button>Add to Cart</button>
+                <a href="checkout.html">
+                    <button class="btn-order">Order Now</button>
+                </a>
+
+                <button onclick="addToCart('Festive Dress',6000)">Add to Cart</button>
             </article>
         </section>
     </main>
@@ -216,6 +222,23 @@
     <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
     <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">riwayaatcouture@gmail.com</p>
 </footer>
+
+
+<script>
+
+    function addToCart(name, price){
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({name:name, price:price});
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to cart!");
+
+    }
+
+</script>
 
 </body>
 </html>

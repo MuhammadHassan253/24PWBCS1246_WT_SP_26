@@ -196,7 +196,12 @@
                 <h3>Elegant Casual Suit</h3>
                 <p class="price">PKR 6,490</p>
                 <p class="description">Perfect for semi-formal gatherings and day events.</p>
-                <button class="btn-order">Order Now</button>
+
+                <a href="checkout.html">
+                    <button class="btn-order">Order Now</button>
+                </a>
+
+                <button onclick="addToCart('Casual Dress',6000)">Add to Cart</button>
             </article>
 
             <article class="product-card">
@@ -205,6 +210,11 @@
                 <p class="price">PKR 4,490</p>
                 <p class="description">Comfortable fabrics with modern hand-touched embroidery.</p>
                 <button class="btn-order">Order Now</button>
+                <a href="checkout.html">
+                    <button class="btn-order">Order Now</button>
+                </a>
+
+                <button onclick="addToCart('Casual Dress',6000)">Add to Cart</button>
             </article>
         </section>
     </main>
@@ -214,6 +224,23 @@
     <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
     <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">riwayaatcouture@gmail.com</p>
 </footer>
+
+
+<script>
+
+    function addToCart(name, price){
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({name:name, price:price});
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to cart!");
+
+    }
+
+</script>
 
 </body>
 </html>

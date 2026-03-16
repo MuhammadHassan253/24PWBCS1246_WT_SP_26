@@ -11,8 +11,8 @@
   <h1>Riwayat Couture</h1>
 
   <nav>
-    <a href="dashboard.html">Home</a>
-    <a href="shop.html">Shop</a>
+    <a href="Dashboard.html">Home</a>
+    <a href="Shop.html">Shop</a>
     <a href="categories.html">Categories</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
@@ -35,6 +35,12 @@
     }
   </script>
 
+  <h2>Your Cart</h2>
+
+  <div id="cartItems"></div>
+
+  <button onclick="goCheckout()">Checkout</button>
+
 </main>
 
 <footer>
@@ -42,6 +48,24 @@
   <p>© 2026 Riwayat Couture</p>
 
 </footer>
+
+<script>
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let cartDiv = document.getElementById("cartItems");
+
+  cart.forEach(item => {
+    cartDiv.innerHTML += "<p>" + item.name + " - Rs." + item.price + "</p>";
+  });
+
+  function goCheckout(){
+    window.location.href="checkout.html";
+  }
+
+</script>
+
+
 
 </body>
 </html>

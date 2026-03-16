@@ -196,7 +196,10 @@
         <h3>Elegant Embroidered Suit</h3>
         <p class="price">PKR 6,490</p>
         <p class="description">Turn heads at every event with our detailed party silhouettes.</p>
-        <button class="btn-order">Order Now</button>
+        <a href="checkout.html">
+          <button class="btn-order">Order Now</button>
+        </a>
+
         <button>Add to Cart</button>
       </article>
 
@@ -205,7 +208,10 @@
         <h3>Luxury Embroidered Dress</h3>
         <p class="price">PKR 4,490</p>
         <p class="description">Glittering hand-embroidery meet modern celebratory cuts.</p>
-        <button class="btn-order">Order Now</button>
+        <a href="checkout.html">
+          <button class="btn-order">Order Now</button>
+        </a>
+
         <button>Add to Cart</button>
       </article>
     </section>
@@ -216,6 +222,23 @@
   <p style="letter-spacing: 4px;">© 2026 RIWAYAAT COUTURE</p>
   <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">riwayaatcouture@gmail.com</p>
 </footer>
+
+
+<script>
+
+  function addToCart(name, price){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({name:name, price:price});
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(name + " added to cart!");
+
+  }
+
+</script>
 
 </body>
 </html>

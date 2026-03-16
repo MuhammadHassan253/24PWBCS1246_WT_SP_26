@@ -126,7 +126,7 @@
 
 <section class="category-bar">
 
-    <a href="shop.html" class="cat-btn">All Collection</a>
+    <a href="Shop.html" class="cat-btn">All Collection</a>
 
     <a href="embroidered.html" class="cat-btn">Embroidered</a>
 
@@ -144,44 +144,66 @@
             <img src="image/Dress1.jpg" alt="Dress 1">
             <h3>Embroidered Suit</h3>
             <p>PKR 3,490</p>
-            <button class="btn-order">Order Now</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Embroidered Suit',4500)">Add to Cart</button>
         </article>
 
         <article class="product-card">
             <img src="image/Dress2.jpg" alt="Dress 2">
             <h3>Festive Lawn Dress</h3>
             <p>PKR 3,999</p>
-            <button class="btn-order">Order Now</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Festive Suit',4500)">Add to Cart</button>
         </article>
 
         <article class="product-card">
             <img src="image/Dress3.jpg" alt="Dress 3">
             <h3>Casual Summer Suit</h3>
             <p>PKR 2,999</p>
-            <button class="btn-order">Order Now</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Summer Suit',4500)">Add to Cart</button>
         </article>
 
         <article class="product-card">
             <img src="image/Dress7.jpg" alt="Dress 4">
             <h3>Wedding Festive Wear</h3>
             <p>PKR 4,999</p>
-            <button class="btn-order">Order Now</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Festive Suit',4500)">Add to Cart</button>
         </article>
 
         <article class="product-card">
             <img src="image/Dress8.jpg" alt="Dress 5">
             <h3>Printed Lawn Suit</h3>
             <p>PKR 5,899</p>
-            <button class="btn-order">Order Now</button>
-            <button>Add to Cart</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Lawn Suit',4500)">Add to Cart</button>
         </article>
 
         <article class="product-card">
             <img src="image/Dress6.jpg" alt="Dress 6">
             <h3>Party Wear Dress</h3>
             <p>PKR 4,200</p>
-            <button class="btn-order">Order Now</button>
-            <button>Add to Cart</button>
+            <a href="checkout.html">
+                <button class="btn-order">Order Now</button>
+            </a>
+
+            <button onclick="addToCart('Wear Suit',4500)">Add to Cart</button>
         </article>
     </div>
 </main>
@@ -189,6 +211,22 @@
 <footer>
     <p>© 2026 RIWAYAAT COUTURE | ELEGANCE REDEFINED</p>
 </footer>
+
+<script>
+
+    function addToCart(name, price){
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push({name:name, price:price});
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " added to cart!");
+
+    }
+
+</script>
 
 </body>
 </html>
